@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.SDK.VS2017", "src\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Roslyn.SDK.Template.Wizard", "src\Tools\Roslyn.SDK.Template.Wizard\Roslyn.SDK.Template.Wizard.csproj", "{ECFF0F53-89D5-4D7D-95D0-EAC1514D84E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyntaxVisualizer.CLI", "src\Tools\SyntaxVisualizer\SyntaxVisualizer.CLI\SyntaxVisualizer.CLI.csproj", "{72AEAD60-E887-41A8-A008-D1EF4F5991E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{ECFF0F53-89D5-4D7D-95D0-EAC1514D84E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECFF0F53-89D5-4D7D-95D0-EAC1514D84E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECFF0F53-89D5-4D7D-95D0-EAC1514D84E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AEAD60-E887-41A8-A008-D1EF4F5991E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AEAD60-E887-41A8-A008-D1EF4F5991E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AEAD60-E887-41A8-A008-D1EF4F5991E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AEAD60-E887-41A8-A008-D1EF4F5991E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{E31F654A-1D4C-4898-8D3C-7A487F82317E} = {AB77CD09-4C32-4F58-8F07-915F8B050520}
 		{44E6D9DB-89FD-41C8-BAEB-5B96AA7793F6} = {AB77CD09-4C32-4F58-8F07-915F8B050520}
 		{ECFF0F53-89D5-4D7D-95D0-EAC1514D84E8} = {DC4EAEF7-A2C9-4628-85FA-809F7287E234}
+		{72AEAD60-E887-41A8-A008-D1EF4F5991E7} = {65AB9A87-CEB0-4CC1-BFFE-FBC393C4DA75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7075E20E-F8B5-460C-8CF0-132F617F386C}
