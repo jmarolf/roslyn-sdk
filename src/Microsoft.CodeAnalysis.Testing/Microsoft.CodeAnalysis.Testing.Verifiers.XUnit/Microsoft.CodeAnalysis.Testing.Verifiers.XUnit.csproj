@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.CodeAnalysis.CSharp.CodeFix.Testing\Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.csproj" />
+    <ProjectReference Include="..\Microsoft.CodeAnalysis.CSharp.CodeFix.Testing\Microsoft.CodeAnalysis.CSharp.Testing.csproj" />
   </ItemGroup>
   
 </Project>
