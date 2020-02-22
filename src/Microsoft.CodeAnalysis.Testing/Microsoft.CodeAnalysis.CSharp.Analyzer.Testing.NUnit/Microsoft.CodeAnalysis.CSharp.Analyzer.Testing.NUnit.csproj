@@ -19,8 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.CodeAnalysis.Analyzer.Testing\Microsoft.CodeAnalysis.Analyzer.Testing.csproj" />
-    <ProjectReference Include="..\Microsoft.CodeAnalysis.CSharp.Analyzer.Testing\Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.csproj" />
     <ProjectReference Include="..\Microsoft.CodeAnalysis.Testing.Verifiers.NUnit\Microsoft.CodeAnalysis.Testing.Verifiers.NUnit.csproj" />
   </ItemGroup>
 

@@ -1,7 +1,16 @@
+Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier)
+Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier).New() -> Void
+Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicProjectState
+Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicProjectState.New(name As String) -> Void
 Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicTest(Of TAnalyzer, TCodeFix, TVerifier)
 Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicTest(Of TAnalyzer, TCodeFix, TVerifier).New() -> Void
 Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicVerifier(Of TAnalyzer, TCodeFix, TVerifier)
 Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicVerifier(Of TAnalyzer, TCodeFix, TVerifier).New() -> Void
+Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier).CreateCompilationOptions() -> Microsoft.CodeAnalysis.CompilationOptions
+Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier).DefaultFileExt() -> String
+Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier).GetDiagnosticAnalyzers() -> System.Collections.Generic.IEnumerable(Of Microsoft.CodeAnalysis.Diagnostics.DiagnosticAnalyzer)
+Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicAnalyzerTest(Of TAnalyzer, TVerifier).Language() -> String
+Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicProjectState.Language() -> String
 Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicTest(Of TAnalyzer, TCodeFix, TVerifier).CreateCompilationOptions() -> Microsoft.CodeAnalysis.CompilationOptions
 Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicTest(Of TAnalyzer, TCodeFix, TVerifier).DefaultFileExt() -> String
 Overrides Microsoft.CodeAnalysis.VisualBasic.Testing.VisualBasicTest(Of TAnalyzer, TCodeFix, TVerifier).GetCodeFixProviders() -> System.Collections.Generic.IEnumerable(Of Microsoft.CodeAnalysis.CodeFixes.CodeFixProvider)

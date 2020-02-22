@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Immutable;
+using Microsoft.CodeAnalysis.CSharp.Testing;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 using Xunit;
@@ -109,7 +110,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [WorkItem(226, "https://github.com/dotnet/roslyn-sdk/issues/226")]
         public void TestConstructionThroughVerifierActionableError1()
         {
-            var error = Assert.Throws<InvalidOperationException>(() => AnalyzerVerifier<TwoDescriptorAnalyzer, CSharpAnalyzerTest<TwoDescriptorAnalyzer>, DefaultVerifier>.Diagnostic());
+            var error = Assert.Throws<InvalidOperationException>(() => Verifier<TwoDescriptorAnalyzer, EmptyCodeFixProvider, CSharpTest<TwoDescriptorAnalyzer, EmptyCodeFixProvider, DefaultVerifier>, DefaultVerifier>.Diagnostic());
             Assert.Equal("'Diagnostic()' can only be used when the analyzer has a single supported diagnostic. Use the 'Diagnostic(DiagnosticDescriptor)' overload to specify the descriptor from which to create the expected result.", error.Message);
         }
 
@@ -117,7 +118,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [WorkItem(226, "https://github.com/dotnet/roslyn-sdk/issues/226")]
         public void TestConstructionThroughVerifierActionableError2()
         {
-            var error = Assert.Throws<InvalidOperationException>(() => AnalyzerVerifier<TwoDescriptorAnalyzer, CSharpAnalyzerTest<TwoDescriptorAnalyzer>, DefaultVerifier>.Diagnostic("ID"));
+            var error = Assert.Throws<InvalidOperationException>(() => Verifier<TwoDescriptorAnalyzer, EmptyCodeFixProvider, CSharpTest<TwoDescriptorAnalyzer, EmptyCodeFixProvider, DefaultVerifier>, DefaultVerifier>.Diagnostic("ID"));
             Assert.Equal("'Diagnostic(string)' can only be used when the analyzer has a single supported diagnostic with the specified ID. Use the 'Diagnostic(DiagnosticDescriptor)' overload to specify the descriptor from which to create the expected result.", error.Message);
         }
 
