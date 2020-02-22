@@ -1,2 +1,4 @@
+Microsoft.CodeAnalysis.VisualBasic.Testing.NUnit.Verifier(Of TAnalyzer)
+Microsoft.CodeAnalysis.VisualBasic.Testing.NUnit.Verifier(Of TAnalyzer).New() -> Void
 Microsoft.CodeAnalysis.VisualBasic.Testing.NUnit.Verifier(Of TAnalyzer, TCodeFix)
 Microsoft.CodeAnalysis.VisualBasic.Testing.NUnit.Verifier(Of TAnalyzer, TCodeFix).New() -> Void

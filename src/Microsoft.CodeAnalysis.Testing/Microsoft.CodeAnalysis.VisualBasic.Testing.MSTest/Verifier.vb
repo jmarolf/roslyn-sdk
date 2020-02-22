@@ -7,4 +7,8 @@ Module Verifier
     Public Function Create(Of TAnalyzer As {DiagnosticAnalyzer, New}, TCodeFix As {CodeFixProvider, New})() As Verifier(Of TAnalyzer, TCodeFix)
         Return New Verifier(Of TAnalyzer, TCodeFix)
     End Function
+
+    Public Function Create(Of TAnalyzer As {DiagnosticAnalyzer, New})() As Verifier(Of TAnalyzer)
+        Return New Verifier(Of TAnalyzer)
+    End Function
 End Module

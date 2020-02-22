@@ -13,5 +13,11 @@ namespace Microsoft.CodeAnalysis.CSharp.Testing.XUnit
         {
             return new Verifier<TAnalyzer, TCodeFix>();
         }
+
+        public static Verifier<TAnalyzer> Create<TAnalyzer>()
+            where TAnalyzer : DiagnosticAnalyzer, new()
+        {
+            return new Verifier<TAnalyzer>();
+        }
     }
 }

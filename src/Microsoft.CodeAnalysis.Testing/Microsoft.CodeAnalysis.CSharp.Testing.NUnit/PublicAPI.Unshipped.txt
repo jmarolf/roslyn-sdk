@@ -1,4 +1,7 @@
 Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier
 Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer, TCodeFix>
 Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer, TCodeFix>.Verifier() -> void
+Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer>
+Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer>.Verifier() -> void
 static Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier.Create<TAnalyzer, TCodeFix>() -> Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer, TCodeFix>
+static Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier.Create<TAnalyzer>() -> Microsoft.CodeAnalysis.CSharp.Testing.NUnit.Verifier<TAnalyzer>
