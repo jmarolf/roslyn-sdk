@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Xunit;
@@ -199,7 +200,7 @@ class TestClass {|BraceOuter:{|Brace:{|}|}
             }
         }
 
-        private class CSharpTest : AnalyzerTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             private readonly bool _nestedDiagnostics;
             private readonly bool _hiddenDescriptors;
@@ -222,6 +223,13 @@ class TestClass {|BraceOuter:{|Brace:{|}|}
             protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
             {
                 yield return new HighlightBracesAnalyzer(_nestedDiagnostics, _hiddenDescriptors, _reportAdditionalLocations);
+            }
+
+            public override Type SyntaxKindType => typeof(SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
             }
         }
     }

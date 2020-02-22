@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Xunit;
@@ -462,7 +463,7 @@ class TestClass {
             };
         }
 
-        private class CSharpTest : AnalyzerTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             public override string Language => LanguageNames.CSharp;
 
@@ -474,6 +475,13 @@ class TestClass {
             protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
             {
                 yield return new NoActionAnalyzer();
+            }
+
+            public override Type SyntaxKindType => typeof(SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
             }
         }
     }

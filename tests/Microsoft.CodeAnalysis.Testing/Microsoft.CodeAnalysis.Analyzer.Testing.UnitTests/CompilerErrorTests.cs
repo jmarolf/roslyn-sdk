@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Xunit;
 
@@ -432,7 +433,7 @@ class TestClass {
             }.RunAsync();
         }
 
-        private class CSharpTest : AnalyzerTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             public override string Language => LanguageNames.CSharp;
 
@@ -445,9 +446,16 @@ class TestClass {
             {
                 yield return new NoActionAnalyzer();
             }
+
+            public override Type SyntaxKindType => typeof(CSharp.SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
+            }
         }
 
-        private class VisualBasicTest : AnalyzerTest<DefaultVerifier>
+        private class VisualBasicTest : Test<DefaultVerifier>
         {
             public override string Language => LanguageNames.VisualBasic;
 
@@ -459,6 +467,13 @@ class TestClass {
             protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
             {
                 yield return new NoActionAnalyzer();
+            }
+
+            public override Type SyntaxKindType => typeof(VisualBasic.SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
             }
         }
     }

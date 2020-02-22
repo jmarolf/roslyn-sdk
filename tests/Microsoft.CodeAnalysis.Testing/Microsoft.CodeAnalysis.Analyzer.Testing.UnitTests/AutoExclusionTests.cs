@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 using Xunit;
@@ -63,7 +64,7 @@ End Class
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<FirstLineDiagnosticAnalyzer>
+                await new CSharpTest<FirstLineDiagnosticAnalyzer>
                 {
                     TestCode = CSharpFirstLineDiagnosticTestCode,
                 }.RunAsync();
@@ -83,7 +84,7 @@ End Class
         [Fact]
         public async Task TestCSharpAnalyzerNotConfigurableWithoutSuppressionPasses()
         {
-            await new CSharpAnalyzerTest<NotConfigurableReplaceThisWithBaseAnalyzer>
+            await new CSharpTest<NotConfigurableReplaceThisWithBaseAnalyzer>
             {
                 TestCode = ReplaceThisWithBaseTestCode,
             }.RunAsync();
@@ -113,7 +114,7 @@ End Class
         [Fact]
         public async Task TestCSharpAnalyzerWithoutSuppressionExclusionButAllowedPasses()
         {
-            await new CSharpAnalyzerTest<FirstLineDiagnosticAnalyzer>
+            await new CSharpTest<FirstLineDiagnosticAnalyzer>
             {
                 TestCode = CSharpFirstLineDiagnosticTestCode,
                 TestBehaviors = TestBehaviors.SkipSuppressionCheck,
@@ -148,7 +149,7 @@ End Class
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new VisualBasicAnalyzerTest<FirstLineDiagnosticAnalyzer>
+                await new VisualBasicTest<FirstLineDiagnosticAnalyzer>
                 {
                     TestCode = VisualBasicFirstLineDiagnosticTestCode,
                 }.RunAsync();
@@ -191,7 +192,7 @@ End Class
         [Fact]
         public async Task TestVisualBasicAnalyzerWithoutSuppressionExclusionButAllowedPasses()
         {
-            await new VisualBasicAnalyzerTest<FirstLineDiagnosticAnalyzer>
+            await new VisualBasicTest<FirstLineDiagnosticAnalyzer>
             {
                 TestCode = VisualBasicFirstLineDiagnosticTestCode,
                 TestBehaviors = TestBehaviors.SkipSuppressionCheck,
@@ -285,7 +286,7 @@ End Class
             }
         }
 
-        private class CSharpReplaceThisWithBaseTest : AnalyzerTest<DefaultVerifier>
+        private class CSharpReplaceThisWithBaseTest : Test<DefaultVerifier>
         {
             private readonly GeneratedCodeAnalysisFlags _generatedCodeAnalysisFlags;
 
@@ -307,9 +308,16 @@ End Class
             {
                 yield return new ReplaceThisWithBaseAnalyzer(_generatedCodeAnalysisFlags);
             }
+
+            public override Type SyntaxKindType => typeof(CSharp.SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
+            }
         }
 
-        private class VisualBasicReplaceThisWithBaseTest : AnalyzerTest<DefaultVerifier>
+        private class VisualBasicReplaceThisWithBaseTest : Test<DefaultVerifier>
         {
             private readonly GeneratedCodeAnalysisFlags _generatedCodeAnalysisFlags;
 
@@ -330,6 +338,13 @@ End Class
             protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
             {
                 yield return new ReplaceThisWithBaseAnalyzer(_generatedCodeAnalysisFlags);
+            }
+
+            public override Type SyntaxKindType => typeof(VisualBasic.SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
             }
         }
     }

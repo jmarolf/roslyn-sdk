@@ -74,12 +74,12 @@ namespace Microsoft.CodeAnalysis.Testing
         ///
         /// <list type="bullet">
         /// <item><description><c>[|text|]</c>: indicates that a diagnostic is reported for <c>text</c>. The diagnostic
-        /// descriptor is located via <see cref="AnalyzerTest{TVerifier}.GetDiagnosticAnalyzers"/>. This syntax may only
-        /// be used when the first analyzer provided by <see cref="AnalyzerTest{TVerifier}.GetDiagnosticAnalyzers"/>
+        /// descriptor is located via <see cref="Test{TVerifier}.GetDiagnosticAnalyzers"/>. This syntax may only
+        /// be used when the first analyzer provided by <see cref="Test{TVerifier}.GetDiagnosticAnalyzers"/>
         /// supports a single diagnostic.</description></item>
         /// <item><description><c>{|ID1:text|}</c>: indicates that a diagnostic with ID <c>ID1</c> is reported for
         /// <c>text</c>. The diagnostic descriptor for <c>ID1</c> is located via
-        /// <see cref="AnalyzerTest{TVerifier}.GetDiagnosticAnalyzers"/>. If no matching descriptor is found, the
+        /// <see cref="Test{TVerifier}.GetDiagnosticAnalyzers"/>. If no matching descriptor is found, the
         /// diagnostic is assumed to be a compiler-reported diagnostic with the specified ID and severity
         /// <see cref="DiagnosticSeverity.Error"/>.</description></item>
         /// </list>
@@ -403,7 +403,7 @@ namespace Microsoft.CodeAnalysis.Testing
             {
                 if (defaultDiagnostic is null)
                 {
-                    throw new InvalidOperationException($"Markup syntax can only omit the diagnostic ID if the first analyzer only supports a single diagnostic. To customize the default value, override {nameof(AnalyzerTest<DefaultVerifier>)}<TVerifier>.{nameof(AnalyzerTest<DefaultVerifier>.GetDefaultDiagnostic)} or specify {nameof(MarkupOptions)}.{nameof(MarkupOptions.UseFirstDescriptor)}.");
+                    throw new InvalidOperationException($"Markup syntax can only omit the diagnostic ID if the first analyzer only supports a single diagnostic. To customize the default value, override {nameof(Test<DefaultVerifier>)}<TVerifier>.{nameof(Test<DefaultVerifier>.GetDefaultDiagnostic)} or specify {nameof(MarkupOptions)}.{nameof(MarkupOptions.UseFirstDescriptor)}.");
                 }
 
                 if (MarkupHandling == MarkupMode.IgnoreFixable && fixableDiagnostics.Contains(defaultDiagnostic.Id))

@@ -15,7 +15,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestDiagnosticMatchesCorrectSpan()
         {
-            await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+            await new CSharpTest<HighlightBraceSpanAnalyzer>
             {
                 TestCode = @"class TestClass [|{|] }",
             }.RunAsync();
@@ -24,7 +24,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestDiagnosticMatchesCorrectLocation()
         {
-            await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+            await new CSharpTest<HighlightBraceSpanAnalyzer>
             {
                 TestCode = @"class TestClass $${ }",
             }.RunAsync();
@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestDiagnosticWithoutLocation()
         {
-            await new CSharpAnalyzerTest<ReportCompilationDiagnosticAnalyzer>
+            await new CSharpTest<ReportCompilationDiagnosticAnalyzer>
             {
                 TestCode = @"class TestClass { }",
                 ExpectedDiagnostics = { new DiagnosticResult(ReportCompilationDiagnosticAnalyzer.Descriptor) },
@@ -43,7 +43,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestDiagnosticExplicitWithoutLocation()
         {
-            await new CSharpAnalyzerTest<ReportCompilationDiagnosticAnalyzer>
+            await new CSharpTest<ReportCompilationDiagnosticAnalyzer>
             {
                 TestCode = @"class TestClass { }",
                 ExpectedDiagnostics = { new DiagnosticResult(ReportCompilationDiagnosticAnalyzer.Descriptor).WithNoLocation() },
@@ -56,7 +56,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+                await new CSharpTest<HighlightBraceSpanAnalyzer>
                 {
                     TestCode = @"class TestClass [||]{ }",
                 }.RunAsync();
@@ -81,7 +81,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+                await new CSharpTest<HighlightBraceSpanAnalyzer>
                 {
                     TestCode = @"class TestClass {$$ }",
                 }.RunAsync();
@@ -106,7 +106,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+                await new CSharpTest<HighlightBraceSpanAnalyzer>
                 {
                     TestCode = @"class TestClass { }",
                     ExpectedDiagnostics = { new DiagnosticResult(HighlightBraceAnalyzer.Descriptor) },
@@ -132,7 +132,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBraceSpanAnalyzer>
+                await new CSharpTest<HighlightBraceSpanAnalyzer>
                 {
                     TestCode = @"class TestClass { }",
                     ExpectedDiagnostics = { new DiagnosticResult(HighlightBraceAnalyzer.Descriptor).WithNoLocation() },
@@ -156,7 +156,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestZeroWidthDiagnosticMatchesCorrectSpan()
         {
-            await new CSharpAnalyzerTest<HighlightBracePositionAnalyzer>
+            await new CSharpTest<HighlightBracePositionAnalyzer>
             {
                 TestCode = @"class TestClass [||]{ }",
             }.RunAsync();
@@ -165,7 +165,7 @@ namespace Microsoft.CodeAnalysis.Testing
         [Fact]
         public async Task TestZeroWidthDiagnosticMatchesCorrectLocation()
         {
-            await new CSharpAnalyzerTest<HighlightBracePositionAnalyzer>
+            await new CSharpTest<HighlightBracePositionAnalyzer>
             {
                 TestCode = @"class TestClass $${ }",
             }.RunAsync();
@@ -176,7 +176,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBracePositionAnalyzer>
+                await new CSharpTest<HighlightBracePositionAnalyzer>
                 {
                     TestCode = @"class TestClass [|{|] }",
                 }.RunAsync();
@@ -201,7 +201,7 @@ namespace Microsoft.CodeAnalysis.Testing
         {
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpAnalyzerTest<HighlightBracePositionAnalyzer>
+                await new CSharpTest<HighlightBracePositionAnalyzer>
                 {
                     TestCode = @"class TestClass {$$ }",
                 }.RunAsync();

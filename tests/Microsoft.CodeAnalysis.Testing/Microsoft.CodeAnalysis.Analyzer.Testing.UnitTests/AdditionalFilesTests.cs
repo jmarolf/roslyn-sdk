@@ -6,6 +6,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CodeFixes;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
@@ -184,7 +185,7 @@ namespace Microsoft.CodeAnalysis.Testing
             }
         }
 
-        private class CSharpTest : AnalyzerTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             public override string Language => LanguageNames.CSharp;
 
@@ -196,6 +197,13 @@ namespace Microsoft.CodeAnalysis.Testing
             protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
             {
                 yield return new HighlightBracesAnalyzer();
+            }
+
+            public override Type SyntaxKindType => typeof(SyntaxKind);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+            {
+                yield return new EmptyCodeFixProvider();
             }
         }
     }
