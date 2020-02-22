@@ -19,7 +19,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Microsoft.CodeAnalysis.Testing
 {
-    public abstract class CodeFixTest<TVerifier> : AnalyzerTest<TVerifier>
+    public abstract class Test<TVerifier> : AnalyzerTest<TVerifier>
         where TVerifier : IVerifier, new()
     {
         /// <summary>
@@ -158,7 +158,7 @@ namespace Microsoft.CodeAnalysis.Testing
         /// </summary>
         public abstract Type SyntaxKindType { get; }
 
-        protected CodeFixTest()
+        protected Test()
         {
             FixedState = new SolutionState(DefaultFilePathPrefix, DefaultFileExt);
             BatchFixedState = new SolutionState(DefaultFilePathPrefix, DefaultFileExt);

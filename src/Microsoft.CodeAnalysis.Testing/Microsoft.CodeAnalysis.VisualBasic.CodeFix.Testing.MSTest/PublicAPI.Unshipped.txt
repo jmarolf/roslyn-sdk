@@ -1,2 +1,2 @@
-Microsoft.CodeAnalysis.VisualBasic.Testing.MSTest.CodeFixVerifier(Of TAnalyzer, TCodeFix)
-Microsoft.CodeAnalysis.VisualBasic.Testing.MSTest.CodeFixVerifier(Of TAnalyzer, TCodeFix).New() -> Void
+Microsoft.CodeAnalysis.VisualBasic.Testing.MSTest.Verifier(Of TAnalyzer, TCodeFix)
+Microsoft.CodeAnalysis.VisualBasic.Testing.MSTest.Verifier(Of TAnalyzer, TCodeFix).New() -> Void

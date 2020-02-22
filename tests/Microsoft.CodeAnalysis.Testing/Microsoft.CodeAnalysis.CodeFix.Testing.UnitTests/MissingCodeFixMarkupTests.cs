@@ -33,7 +33,7 @@ namespace MyNamespace {|Brace:{|}
 ";
 
             // Test through the helper
-            await new CSharpCodeFixTest<HighlightBraceAnalyzer, CodeFixNotOfferedProvider>
+            await new CSharpTest<HighlightBraceAnalyzer, CodeFixNotOfferedProvider>
             {
                 TestCode = testCode,
                 FixedState = { MarkupHandling = MarkupMode.Allow },
@@ -60,7 +60,7 @@ namespace MyNamespace {|Brace:{|}
             // Test through the helper
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpCodeFixTest<HighlightBraceAnalyzer, CodeFixOfferedProvider>
+                await new CSharpTest<HighlightBraceAnalyzer, CodeFixOfferedProvider>
                 {
                     TestCode = testCode,
                     FixedState = { MarkupHandling = MarkupMode.Allow },
@@ -92,7 +92,7 @@ namespace MyNamespace {|Brace:{|}
 ";
 
             // Test through the helper
-            await new CSharpCodeFixTest<HighlightBraceAnalyzer, CodeFixOfferedProvider>
+            await new CSharpTest<HighlightBraceAnalyzer, CodeFixOfferedProvider>
             {
                 TestCode = testCode,
                 FixedState = { MarkupHandling = MarkupMode.Allow },
@@ -121,7 +121,7 @@ namespace MyNamespace {|Brace:{|}
             // Test through the helper (this scenario cannot be described via the verifier)
             var exception = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
             {
-                await new CSharpCodeFixTest<HighlightBraceAnalyzer, CodeFixNotOfferedProvider>
+                await new CSharpTest<HighlightBraceAnalyzer, CodeFixNotOfferedProvider>
                 {
                     TestCode = testCode,
                     FixedState = { MarkupHandling = MarkupMode.Allow },
@@ -202,7 +202,7 @@ namespace MyNamespace {|Brace:{|}
             }
         }
 
-        private class Verify<TCodeFix> : CodeFixVerifier<HighlightBraceAnalyzer, TCodeFix, CSharpCodeFixTest<HighlightBraceAnalyzer, TCodeFix>, DefaultVerifier>
+        private class Verify<TCodeFix> : Verifier<HighlightBraceAnalyzer, TCodeFix, CSharpTest<HighlightBraceAnalyzer, TCodeFix>, DefaultVerifier>
             where TCodeFix : CodeFixProvider, new()
         {
         }

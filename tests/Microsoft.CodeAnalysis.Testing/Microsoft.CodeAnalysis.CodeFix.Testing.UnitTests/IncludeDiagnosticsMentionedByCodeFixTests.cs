@@ -15,7 +15,7 @@ namespace Microsoft.CodeAnalysis.Testing
 {
     public class IncludeDiagnosticsMentionedByCodeFixTests
     {
-        private class Verify<TCodeFix> : CodeFixVerifier<EmptyDiagnosticAnalyzer, TCodeFix, CSharpCodeFixTest<EmptyDiagnosticAnalyzer, TCodeFix>, DefaultVerifier>
+        private class Verify<TCodeFix> : Verifier<EmptyDiagnosticAnalyzer, TCodeFix, CSharpTest<EmptyDiagnosticAnalyzer, TCodeFix>, DefaultVerifier>
             where TCodeFix : CodeFixProvider, new()
         {
         }

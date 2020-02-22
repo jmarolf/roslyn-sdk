@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.Testing;
 
 namespace Microsoft.CodeAnalysis.CSharp.Testing
 {
-    public class CSharpCodeFixVerifier<TAnalyzer, TCodeFix, TVerifier> : CodeFixVerifier<TAnalyzer, TCodeFix, CSharpCodeFixTest<TAnalyzer, TCodeFix, TVerifier>, TVerifier>
+    public class CSharpVerifier<TAnalyzer, TCodeFix, TVerifier> : Verifier<TAnalyzer, TCodeFix, CSharpTest<TAnalyzer, TCodeFix, TVerifier>, TVerifier>
         where TAnalyzer : DiagnosticAnalyzer, new()
         where TCodeFix : CodeFixProvider, new()
         where TVerifier : IVerifier, new()

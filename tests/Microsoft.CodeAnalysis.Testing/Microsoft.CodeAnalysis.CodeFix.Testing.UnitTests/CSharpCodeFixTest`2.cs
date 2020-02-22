@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace Microsoft.CodeAnalysis.Testing
 {
-    internal class CSharpCodeFixTest<TAnalyzer, TCodeFix> : CodeFixTest<DefaultVerifier>
+    internal class CSharpTest<TAnalyzer, TCodeFix> : Test<DefaultVerifier>
         where TAnalyzer : DiagnosticAnalyzer, new()
         where TCodeFix : CodeFixProvider, new()
     {

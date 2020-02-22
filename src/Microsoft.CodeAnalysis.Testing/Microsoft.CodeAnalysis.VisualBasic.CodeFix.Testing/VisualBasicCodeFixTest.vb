@@ -4,8 +4,8 @@ Imports Microsoft.CodeAnalysis.CodeFixes
 Imports Microsoft.CodeAnalysis.Diagnostics
 Imports Microsoft.CodeAnalysis.Testing
 
-Public Class VisualBasicCodeFixTest(Of TAnalyzer As {DiagnosticAnalyzer, New}, TCodeFix As {CodeFixProvider, New}, TVerifier As {IVerifier, New})
-    Inherits CodeFixTest(Of TVerifier)
+Public Class VisualBasicTest(Of TAnalyzer As {DiagnosticAnalyzer, New}, TCodeFix As {CodeFixProvider, New}, TVerifier As {IVerifier, New})
+    Inherits Test(Of TVerifier)
 
     Public Overrides ReadOnly Property Language As String
         Get

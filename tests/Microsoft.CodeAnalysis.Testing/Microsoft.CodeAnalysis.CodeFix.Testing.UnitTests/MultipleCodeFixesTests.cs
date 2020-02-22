@@ -289,7 +289,7 @@ class TestClass {{
             }
         }
 
-        private class CSharpTest : CodeFixTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             private readonly ImmutableArray<ImmutableArray<int>> _replacementGroups;
 

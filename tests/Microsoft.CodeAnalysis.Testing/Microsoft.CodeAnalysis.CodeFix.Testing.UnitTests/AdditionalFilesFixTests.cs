@@ -361,7 +361,7 @@ namespace Microsoft.CodeAnalysis.Testing
             }
         }
 
-        private class CSharpTest : CodeFixTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             private readonly SuppressDiagnosticIf _suppressDiagnosticIf;
 

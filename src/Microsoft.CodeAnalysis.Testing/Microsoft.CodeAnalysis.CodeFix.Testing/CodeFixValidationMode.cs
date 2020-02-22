@@ -5,7 +5,7 @@ namespace Microsoft.CodeAnalysis.Testing
     /// <summary>
     /// Specifies the validation mode for code fixes.
     /// </summary>
-    /// <seealso cref="CodeFixTest{TVerifier}.CodeFixValidationMode"/>
+    /// <seealso cref="Test{TVerifier}.CodeFixValidationMode"/>
     public enum CodeFixValidationMode
     {
         /// <summary>

@@ -428,7 +428,7 @@ Actual and expected values differ. Expected shown in baseline of diff:
             }
         }
 
-        private class ReplaceThisWithBaseTest<TCodeFix> : CodeFixTest<DefaultVerifier>
+        private class ReplaceThisWithBaseTest<TCodeFix> : Test<DefaultVerifier>
             where TCodeFix : CodeFixProvider, new()
         {
             public override string Language => LanguageNames.CSharp;

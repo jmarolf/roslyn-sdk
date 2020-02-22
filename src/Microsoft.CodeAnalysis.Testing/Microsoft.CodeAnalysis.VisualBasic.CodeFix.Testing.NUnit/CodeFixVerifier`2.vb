@@ -4,6 +4,6 @@ Imports Microsoft.CodeAnalysis.CodeFixes
 Imports Microsoft.CodeAnalysis.Diagnostics
 Imports Microsoft.CodeAnalysis.Testing.Verifiers
 
-Public Class CodeFixVerifier(Of TAnalyzer As {DiagnosticAnalyzer, New}, TCodeFix As {CodeFixProvider, New})
-    Inherits VisualBasicCodeFixVerifier(Of TAnalyzer, TCodeFix, NUnitVerifier)
+Public Class Verifier(Of TAnalyzer As {DiagnosticAnalyzer, New}, TCodeFix As {CodeFixProvider, New})
+    Inherits VisualBasicVerifier(Of TAnalyzer, TCodeFix, NUnitVerifier)
 End Class

@@ -419,7 +419,7 @@ class TestClass2 {
             }
         }
 
-        private class CSharpTest : CodeFixTest<DefaultVerifier>
+        private class CSharpTest : Test<DefaultVerifier>
         {
             public override string Language => LanguageNames.CSharp;
 

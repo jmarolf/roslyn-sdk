@@ -5,13 +5,13 @@ using Microsoft.CodeAnalysis.Diagnostics;
 
 namespace Microsoft.CodeAnalysis.CSharp.Testing.NUnit
 {
-    public static class CodeFixVerifier
+    public static class Verifier
     {
-        public static CodeFixVerifier<TAnalyzer, TCodeFix> Create<TAnalyzer, TCodeFix>()
+        public static Verifier<TAnalyzer, TCodeFix> Create<TAnalyzer, TCodeFix>()
             where TAnalyzer : DiagnosticAnalyzer, new()
             where TCodeFix : CodeFixProvider, new()
         {
-            return new CodeFixVerifier<TAnalyzer, TCodeFix>();
+            return new Verifier<TAnalyzer, TCodeFix>();
         }
     }
 }

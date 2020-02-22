@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.Testing.Verifiers;
 
 namespace Microsoft.CodeAnalysis.CSharp.Testing.NUnit
 {
-    public class CodeFixVerifier<TAnalyzer, TCodeFix> : CSharpCodeFixVerifier<TAnalyzer, TCodeFix, NUnitVerifier>
+    public class Verifier<TAnalyzer, TCodeFix> : CSharpVerifier<TAnalyzer, TCodeFix, NUnitVerifier>
         where TAnalyzer : DiagnosticAnalyzer, new()
         where TCodeFix : CodeFixProvider, new()
     {

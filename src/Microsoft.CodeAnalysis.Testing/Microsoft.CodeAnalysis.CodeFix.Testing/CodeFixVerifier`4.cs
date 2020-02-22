@@ -14,10 +14,10 @@ namespace Microsoft.CodeAnalysis.Testing
     /// <typeparam name="TCodeFix">The <see cref="CodeFixProvider"/> to test.</typeparam>
     /// <typeparam name="TTest">The test implementation to use.</typeparam>
     /// <typeparam name="TVerifier">The type of verifier to use.</typeparam>
-    public class CodeFixVerifier<TAnalyzer, TCodeFix, TTest, TVerifier>
+    public class Verifier<TAnalyzer, TCodeFix, TTest, TVerifier>
            where TAnalyzer : DiagnosticAnalyzer, new()
            where TCodeFix : CodeFixProvider, new()
-           where TTest : CodeFixTest<TVerifier>, new()
+           where TTest : Test<TVerifier>, new()
            where TVerifier : IVerifier, new()
     {
         /// <inheritdoc cref="AnalyzerVerifier{TAnalyzer, TTest, TVerifier}.Diagnostic()"/>
