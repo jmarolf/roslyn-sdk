@@ -5,7 +5,7 @@
     <RootNamespace>Microsoft.CodeAnalysis.Testing</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Microsoft.CodeAnalysis.Testing\Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing\Microsoft.CodeAnalysis.VisualBasic.Testing.vbproj" />
+    <ProjectReference Include="..\..\..\src\Microsoft.CodeAnalysis.Testing\Microsoft.CodeAnalysis.VisualBasic.Testing\Microsoft.CodeAnalysis.VisualBasic.Testing.vbproj" />
     <ProjectReference Include="..\Microsoft.CodeAnalysis.Testing.Utilities\Microsoft.CodeAnalysis.Testing.Utilities.csproj" />
   </ItemGroup>
 </Project>
