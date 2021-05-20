@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Roslyn.VisualBasic.SDK</PackageId>
+    <PackageVersion>3.9.0.0</PackageVersion>
+    <Description>Roslyn SDK.</Description>
+    <PackageReleaseNotes>Roslyn SDK</PackageReleaseNotes>
+    <PackageTags>Analyzer SourceGenerator Generator SDK</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup Label="Analyzer References">
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic" Version="3.9.0" IsImplicitlyDefined="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Roslyn.VisualBasic.SDK.props" CopyToOutputDirectory="Always" Pack="true" PackagePath="build" />
+    <None Update="Roslyn.VisualBasic.SDK.targets" CopyToOutputDirectory="Always" Pack="true" PackagePath="build" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="..\Roslyn.SDK.Common.props" CopyToOutputDirectory="Always" Pack="true" PackagePath="Common" />
+    <None Update="..\Roslyn.SDK.Common.targets" CopyToOutputDirectory="Always" Pack="true" PackagePath="Common" />
+  </ItemGroup>
+
+</Project>

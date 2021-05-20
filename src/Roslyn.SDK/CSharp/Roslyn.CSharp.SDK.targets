@@ -1,0 +1,5 @@
+<Project>
+
+  <Import Project="$(MSBuildThisFileDirectory)..\Common\Roslyn.SDK.Common.targets" />
+
+</Project>
